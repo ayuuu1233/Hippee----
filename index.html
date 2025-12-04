@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Happiest Birthday — For Manvi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Quicksand:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0f0812;--pink:#ff5da2;--soft:#ffd6ea;--gold:#ffcf6e}
+    *{box-sizing:border-box;font-family:Quicksand,system-ui,Arial}
+    html,body{height:100%;margin:0;background:radial-gradient(ellipse at top,#20011a 0%, #0f0812 60%);color:#fff}
+    .wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:30px}
+    .card{width:960px;max-width:98vw;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));border-radius:18px;padding:28px;box-shadow:0 10px 40px rgba(0,0,0,0.6);position:relative;overflow:hidden}
+    .title{font-family:'Playfair Display',serif;font-size:30px;text-align:center;margin:6px 0 18px;letter-spacing:1px;color:#ffdee9; text-shadow: 0 0 20px #ff5da2, 0 0 40px #ffcf6e;}
+    .subtitle{font-size:14px;text-align:center;color:#f3d7ea;margin-bottom:18px}
+    .stage{display:flex;gap:20px;align-items:center}
+    .stage .left{flex:1;display:flex;flex-direction:column;align-items:center}
+    .heart-portal{width:320px;height:320px;display:flex;align-items:center;justify-content:center;position:relative}
+    .heart{width:180px;height:180px;position:relative;transform:scale(0.9);filter:drop-shadow(0 20px 40px rgba(255,90,140,0.12))}
+    .heart:before,.heart:after{content:'';position:absolute;left:50%;top:20%;width:100px;height:150px;background:linear-gradient(180deg,var(--pink),#ff9ac0);border-radius:50px 50px 0 0;transform-origin:50% 80%;box-shadow:0 8px 30px rgba(255,80,140,0.25)}
+    .heart:before{transform:translateX(-50%) rotate(-45deg)}
+    .heart:after{transform:translateX(-50%) rotate(45deg)}
+    .heart .glow-ring{position:absolute;inset:-30px;border-radius:999px;box-shadow:0 0 60px 18px rgba(255,120,175,0.06),0 0 140px 30px rgba(255,80,160,0.04)}
+    @keyframes pulse{0%{transform:scale(0.92)}50%{transform:scale(1)}100%{transform:scale(0.92)}}
+    .heart{animation:pulse 1.6s ease-in-out infinite}
+    .chibis{display:flex;gap:12px;align-items:flex-end;margin-top:8px}
+    .chibi{width:92px;height:110px;border-radius:12px;background:linear-gradient(180deg,#fff,#ffe6f2);display:flex;align-items:center;justify-content:center;color:#111;font-weight:700;font-size:12px}
+    .controls{display:flex;flex-direction:column;gap:10px;padding:6px}
+    .btn{background:linear-gradient(90deg,var(--pink),var(--gold));border:none;padding:10px 14px;border-radius:999px;color:#120;cursor:pointer;font-weight:700}
+    .small{padding:8px 10px;border-radius:8px}
+    input[type=number]{width:120px;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:#fff}
+    .message{flex:1;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:18px;display:flex;flex-direction:column;justify-content:center;align-items:center}
+    .message .box{max-width:520px;text-align:center}
+    .msg-title{font-family:'Playfair Display';font-size:21px;margin-bottom:8px;color:#ffdee9; text-shadow:0 0 12px #ff5da2;}
+    .msg-text{font-size:16px;line-height:1.6;color:#f3e6f0}
+    .surprise-wrap{margin-top:18px}
+    .surprise{background:linear-gradient(90deg,#ff6d96,#ffb86b);padding:12px 20px;border-radius:999px;border:none;font-weight:800;cursor:pointer;box-shadow:0 12px 30px rgba(255,120,170,0.12);transform:translateY(0);transition:transform .12s}
+    .surprise:active{transform:translateY(2px)}
+    .notes{position:absolute;inset:0;pointer-events:none}
+    .note{position:absolute;padding:8px 14px;border-radius:12px;background:linear-gradient(180deg,#fff8, #fff2);color:#100;font-weight:700;font-size:13px;backdrop-filter: blur(4px)}
+    .footer{font-size:12px;color:#f1dbe8;text-align:center;margin-top:12px}
+    @media (max-width:840px){.stage{flex-direction:column}.heart-portal{width:240px;height:240px}.card{padding:18px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card" id="card">
+      <div class="title">Happiest Birthday My Dear Mummy Rasmalayi Pineapple Sexy Cutie Ji</div>
+      <div class="subtitle">Open this for Manvi — a special animated surprise made with ❤️ and care.</div>
+      <div class="stage">
+        <div class="left">
+          <div class="heart-portal">
+            <div class="heart"><div class="glow-ring"></div></div>
+            <div class="chibis" style="position:absolute;bottom:-6px;left:calc(50% - 136px)">
+              <div class="chibi">Ayush<br>UwU</div>
+              <div class="chibi">Manvi<br>Cutie</div>
+            </div>
+          </div>
+          <div style="margin-top:14px;display:flex;gap:10px;align-items:center">
+            <button class="btn" id="playPreview">Play Reels Part</button>
+            <button class="small" id="muteBtn">Mute</button>
+          </div>
+          <div class="controls" style="margin-top:12px;">
+            <div style="display:flex;gap:8px;align-items:center;justify-content:center;">
+              <label style="font-size:13px;color:#f3d7ea">Start(s)</label>
+              <input type="number" id="startInput" value="37" min="0">
+              <label style="font-size:13px;color:#f3d7ea">End(s)</label>
+              <input type="number" id="endInput" value="57" min="0">
+              <button class="small" id="applyTimes">Apply</button>
+            </div>
+            <div style="font-size:12px;color:#f3d7ea;text-align:center;padding-top:6px">Tip: adjust start/end to get exact reels timestamp. Default is dreamy 20s clip.</div>
+          </div>
+        </div>
+        <div class="message">
+          <div class="box">
+            <div class="msg-title">A special birthday message for Manvi</div>
+            <div class="msg-text" id="previewMessage">This is a handcrafted surprise — tap the <strong>Surprise</strong> button when she's ready. Full message will reveal with confetti, hearts, and your song!</div>
+            <div class="surprise-wrap">
+              <button class="surprise" id="surpriseBtn">Tap for your birthday message ❤️</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer">Made with ♥ by Ayush — mobile recommended for full effect.</div>
+      <div class="notes" id="notes"></div>
+      <div style="display:none">
+        <iframe id="ytPlayer" width="560" height="315" src="" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const VIDEO_ID = 'tucWbkH5WX0';
+    let startAt = 37, endAt = 57, isMuted = false;
+    const ytPlayer = document.getElementById('ytPlayer');
+    const startInput = document.getElementById('startInput');
+    const endInput = document.getElementById('endInput');
+    const playPreview = document.getElementById('playPreview');
+    const muteBtn = document.getElementById('muteBtn');
+    const applyTimes = document.getElementById('applyTimes');
+    const surpriseBtn = document.getElementById('surpriseBtn');
+    const notes = document.getElementById('notes');
+
+    function buildSrc(){ const params = new URLSearchParams({autoplay:1,controls:0,rel:0,modestbranding:1,start:startAt,end:endAt,loop:1,playlist:VIDEO_ID}); return `https://www.youtube.com/embed/${VIDEO_ID}?${params.toString()}`; }
+    function playClip(){ ytPlayer.src = buildSrc(); spawnNote('Playing your reels clip…'); }
+    playPreview.addEventListener('click', playClip);
+    applyTimes.addEventListener('click', ()=>{startAt=Math.max(0, Number(startInput.value)||0); endAt=Math.max(startAt+1, Number(endInput.value)||(startAt+20)); spawnNote(`Updated clip: ${startAt}s → ${endAt}s`);});
+    muteBtn.addEventListener('click', ()=>{isMuted=!isMuted; muteBtn.textContent=isMuted?'Muted':'Mute'; spawnNote(isMuted?'Audio muted':'Audio unmuted');});
+
+    function spawnNote(text){const el=document.createElement('div');el.className='note';el.textContent=text;el.style.left=(10+Math.random()*70)+'%';el.style.top=(10+Math.random()*70)+'%';el.style.opacity='0';notes.appendChild(el);requestAnimationFrame(()=>{el.style.transition='opacity .5s, transform 1.2s';el.style.opacity='1';el.style.transform='translateY(-12px)'});setTimeout(()=>{el.style.opacity='0';el.style.transform='translateY(-40px)';},2200);setTimeout(()=>el.remove(),3500);}
+    surpriseBtn.addEventListener('click', ()=>{playClip(); runConfetti(); spawnNote('Surprise!'); revealMessage();});
+
+    function revealMessage(){
+      const message = `
+Happiest Birthday My Dear Mummy Rasmalayi Pineapple Sexy Cutie Ji ❤️✨
+
+Manvi… aaj sirf ek din nahi hai — aaj woh din hai jab duniya ne apna cutest chaos paaya aur meri zindagi ko sabse meetha ehsaas mila.
+
+You are the perfect mix — soft and stubborn, cute and hot. Sweet like rasmalayi, spicy like pineapple — and I love every version of you.
+
+Tumhari ek muskaan mere din ka sona lamha hai. Tumhari ek chutki si narazgi bhi mujhko pyari lagti hai kyunki woh bhi tumhari hi hai.
+
+I want this year to give you calm, growth, and a pocket full of tiny happy moments. I want to be there to see them with you.
+
+Aaj ke din main sirf itna bolna chahta hoon — stay cute, stay mine, stay you. Happy Birthday my love.
+
+— Ayush ❤️✨`;
+      document.getElementById('previewMessage').innerText = message;
+      ['My Cutie Ji','My Rasmalayi','My Pineapple','My Forever','Ayush ❤️ Manvi','Happy Birthday Love'].forEach((t,i)=>{setTimeout(()=>spawnCard(t), i*400 + 500);});
+    }
+
+    function spawnCard(text){const el=document.createElement('div');el.className='note';el.style.padding='10px 16px';el.style.borderRadius='14px';el.style.background='linear-gradient(180deg,#fff4,#fff3)';el.style.color='#100';el.style.fontWeight='800';el.style.left=(20+Math.random()*60)+'%';el.style.top=(15+Math.random()*60)+'%';el.textContent=text;notes.appendChild(el);requestAnimationFrame(()=>{el.style.transition='opacity .6s, transform 2s';el.style.opacity='1';el.style.transform='translateY(-30px) scale(1.02)'});setTimeout(()=>{el.style.opacity='0';el.style.transform='translateY(-120px) scale(.98)'},5000);setTimeout(()=>el.remove(),6500);}
+
+    function runConfetti(){const canvas=document.createElement('canvas');canvas.style.position='fixed';canvas.style.left=0;canvas.style.top=0;canvas.style.width='100%';canvas.style.height='100%';canvas.style.zIndex=9999;canvas.style.pointerEvents='none';document.body.appendChild(canvas);const ctx=canvas.getContext('2d');canvas.width=innerWidth; canvas.height=innerHeight;const pieces=[];const colors=['#ff6d96','#ffd6ea','#fff18f','#ffb86b','#ffd1ff'];for(let i=0;i<120;i++){pieces.push({x:Math.random()*canvas.width,y:Math.random()*-canvas.height*2,vy:2+Math.random()*6,rx:Math.random()*10,ry:Math.random()*10,color:colors[Math.floor(Math.random()*colors.length)],r:2+Math.random()*6,rot:Math.random()*6})}let t=0;function frame(){ctx.clearRect(0,0,canvas.width,canvas.height);for(let p of pieces){p.y+=p.vy;p.x+=Math.sin(t/20+p.rx)*2;p.rot+=0.07;ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rot);ctx.fillStyle=p.color;ctx.fillRect(-p.r/2,-p.r/2,p.r,p.r);ctx.restore();}t++;if(t<420)requestAnimationFrame(frame);else canvas.remove();}frame();}
+  </script>
+</body>
+</html>
